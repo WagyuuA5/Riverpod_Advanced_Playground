@@ -10,9 +10,7 @@ class LayarBScreen extends ConsumerWidget {
     final postsAsync = ref.watch(postListProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Layar B: Async Fetch'),
-      ),
+      appBar: AppBar(title: const Text('Layar B: Async Fetch')),
       body: postsAsync.when(
         data: (posts) {
           return RefreshIndicator(
@@ -27,7 +25,11 @@ class LayarBScreen extends ConsumerWidget {
                 return ListTile(
                   leading: CircleAvatar(child: Text('${post.id}')),
                   title: Text(post.title),
-                  subtitle: Text(post.body, maxLines: 1, overflow: TextOverflow.ellipsis),
+                  subtitle: Text(
+                    post.body,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 );
               },
             ),
@@ -46,9 +48,7 @@ class LayarBScreen extends ConsumerWidget {
             ],
           ),
         ),
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
-        ),
+        loading: () => const Center(child: CircularProgressIndicator()),
       ),
     );
   }

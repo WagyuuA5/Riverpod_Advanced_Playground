@@ -11,7 +11,7 @@ class User {
   final int viewCount;
 
   const User({required this.name, required this.viewCount});
-  
+
   User copyWith({String? name, int? viewCount}) {
     return User(
       name: name ?? this.name,

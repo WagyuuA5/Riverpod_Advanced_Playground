@@ -33,7 +33,7 @@ List<Product> filteredProducts(FilteredProductsRef ref) {
   final filter = ref.watch(productFilterProvider);
 
   if (filter == 'Semua') return allProducts;
-  
+
   return allProducts.where((p) => p.category == filter).toList();
 }
 
@@ -48,7 +48,7 @@ class UserProfile extends _$UserProfile {
   void incrementView() {
     state = state.copyWith(viewCount: state.viewCount + 1);
   }
-  
+
   void changeName(String newName) {
     state = state.copyWith(name: newName);
   }

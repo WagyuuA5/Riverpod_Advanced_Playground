@@ -6,7 +6,7 @@ import '../data/item_repository.dart';
 part 'item_detail_provider.g.dart';
 
 // Waktu cache dalam detik (5 menit = 300 detik, tapi kita pakai konstanta agar mudah diubah)
-const cacheDurationSeconds = 300; 
+const cacheDurationSeconds = 300;
 
 @riverpod
 class CacheTimer extends _$CacheTimer {
@@ -39,10 +39,10 @@ class CacheTimer extends _$CacheTimer {
 Future<String> itemDetail(ItemDetailRef ref, String id) async {
   // Tetap hidupkan state dari provider ini (jangan langsung auto-dispose)
   final link = ref.keepAlive();
-  
+
   // Mulai hitung mundur (kombinasi Timer dan ref.keepAlive)
   ref.read(cacheTimerProvider(id).notifier).start(link);
-  
+
   // Jika provider ini dihancurkan (misal waktu habis), batalkan timer
   ref.onDispose(() {
     ref.invalidate(cacheTimerProvider(id));

@@ -52,17 +52,27 @@ class ItemDetailScreen extends ConsumerWidget {
                 Container(
                   padding: const EdgeInsets.all(8),
                   color: Colors.green.shade100,
-                  child: Text('Cache aktif! Sisa waktu: $remainingSeconds detik', style: const TextStyle(fontWeight: FontWeight.bold)),
+                  child: Text(
+                    'Cache aktif! Sisa waktu: $remainingSeconds detik',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 )
               else if (remainingSeconds == 0)
                 Container(
                   padding: const EdgeInsets.all(8),
                   color: Colors.red.shade100,
-                  child: const Text('Cache expired, jika ditutup akan fetching ulang.', style: TextStyle(fontWeight: FontWeight.bold)),
+                  child: const Text(
+                    'Cache expired, jika ditutup akan fetching ulang.',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ),
               const SizedBox(height: 24),
               detailAsync.when(
-                data: (data) => Text(data, textAlign: TextAlign.center, style: const TextStyle(fontSize: 18)),
+                data: (data) => Text(
+                  data,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 18),
+                ),
                 loading: () => const CircularProgressIndicator(),
                 error: (err, stack) => Text('Error: $err'),
               ),
@@ -70,7 +80,7 @@ class ItemDetailScreen extends ConsumerWidget {
               ElevatedButton(
                 onPressed: () => ref.invalidate(itemDetailProvider(id)),
                 child: const Text('Invalidate Cache Secara Manual'),
-              )
+              ),
             ],
           ),
         ),

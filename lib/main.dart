@@ -8,11 +8,7 @@ import 'features/dependent_providers/presentation/layar_e_screen.dart';
 import 'features/rebuild_counter/presentation/rebuild_counter_screen.dart';
 
 void main() {
-  runApp(
-    const ProviderScope(
-      child: MyApp(),
-    ),
-  );
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -37,9 +33,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Riverpod Playground'),
-      ),
+      appBar: AppBar(title: const Text('Riverpod Playground')),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

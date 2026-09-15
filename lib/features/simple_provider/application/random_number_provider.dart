@@ -9,6 +9,6 @@ int randomNumber(RandomNumberRef ref) {
   ref.onDispose(() {
     debugPrint('randomNumberProvider di-dispose!');
   });
-  
+
   return Random().nextInt(1000);
 }
