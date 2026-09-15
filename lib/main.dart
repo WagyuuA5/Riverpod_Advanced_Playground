@@ -4,6 +4,7 @@ import 'features/simple_provider/presentation/layar_a_screen.dart';
 import 'features/async_fetch/presentation/layar_b_screen.dart';
 import 'features/optimistic_mutation/presentation/layar_c_screen.dart';
 import 'features/family_keepalive/presentation/layar_d_screen.dart';
+import 'features/dependent_providers/presentation/layar_e_screen.dart';
 
 void main() {
   runApp(
@@ -79,6 +80,16 @@ class HomeScreen extends StatelessWidget {
               );
             },
             child: const Text('Layar D: Family & KeepAlive'),
+          ),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const LayarEScreen()),
+              );
+            },
+            child: const Text('Layar E: Dependent & Select'),
           ),
         ],
       ),
