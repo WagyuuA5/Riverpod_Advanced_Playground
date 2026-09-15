@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'features/simple_provider/presentation/layar_a_screen.dart';
+import 'features/async_fetch/presentation/layar_b_screen.dart';
 
 void main() {
   runApp(
@@ -47,9 +48,18 @@ class HomeScreen extends StatelessWidget {
             },
             child: const Text('Layar A: Auto Dispose Default'),
           ),
+          const SizedBox(height: 16),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const LayarBScreen()),
+              );
+            },
+            child: const Text('Layar B: Async Fetch & Refresh'),
+          ),
         ],
       ),
     );
   }
 }
-
