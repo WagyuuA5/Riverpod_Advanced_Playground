@@ -1,4 +1,4 @@
-# Riverpod Advanced Playground ??
+# Riverpod Advanced Playground
 
 [![Flutter CI](https://github.com/WagyuuA5/Riverpod_Advanced_Playground/actions/workflows/ci.yml/badge.svg)](https://github.com/WagyuuA5/Riverpod_Advanced_Playground/actions/workflows/ci.yml)
 [![Riverpod](https://img.shields.io/badge/Riverpod-2.5.1-blue.svg)](https://riverpod.dev)
@@ -20,7 +20,7 @@ This project is built using a clean separation of concerns, heavily relying on R
 
 ---
 
-## ?? Core Concepts Demonstrated
+##  Core Concepts Demonstrated
 
 The playground consists of 5 main screens (Screens A to E) and a special Rebuild Counter screen.
 
@@ -35,7 +35,7 @@ The playground consists of 5 main screens (Screens A to E) and a special Rebuild
 
 ---
 
-## ?? Legacy Riverpod vs Code Generation
+##  Legacy Riverpod vs Code Generation
 
 By utilizing `riverpod_generator`, we eliminate boilerplate and make our intent much clearer.
 
@@ -82,7 +82,7 @@ class PostList extends _$PostList {
 
 ---
 
-## ??? Getting Started
+##  Getting Started
 
 Follow these steps to run the project locally:
 
@@ -102,7 +102,7 @@ Follow these steps to run the project locally:
 
 ---
 
-## ?? Documentation Gallery
+##  Documentation Gallery
 
 Here is a visual walkthrough of the system in action:
 
