@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'main.g.dart';
-
-@riverpod
-String helloWorld(HelloWorldRef ref) {
-  return 'Hello World';
-}
+import 'features/simple_provider/presentation/layar_a_screen.dart';
 
 void main() {
   runApp(
@@ -28,10 +21,33 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Riverpod Setup Successful!'),
-        ),
+      home: const HomeScreen(),
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Riverpod Playground'),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const LayarAScreen()),
+              );
+            },
+            child: const Text('Layar A: Auto Dispose Default'),
+          ),
+        ],
       ),
     );
   }
