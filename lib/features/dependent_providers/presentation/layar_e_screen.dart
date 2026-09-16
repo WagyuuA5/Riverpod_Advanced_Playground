@@ -10,7 +10,7 @@ class LayarEScreen extends ConsumerWidget {
     // Watch dependent provider
     final products = ref.watch(filteredProductsProvider);
     final currentFilter = ref.watch(productFilterProvider);
-    
+
     // Untuk demo select, kita ambil statenya untuk button counter
     final userFull = ref.watch(userProfileProvider);
 
@@ -23,7 +23,9 @@ class LayarEScreen extends ConsumerWidget {
             padding: const EdgeInsets.all(8.0),
             child: Wrap(
               spacing: 8.0,
-              children: ['Semua', 'Elektronik', 'Pakaian', 'Perabotan'].map((cat) {
+              children: ['Semua', 'Elektronik', 'Pakaian', 'Perabotan'].map((
+                cat,
+              ) {
                 return ChoiceChip(
                   label: Text(cat),
                   selected: currentFilter == cat,
@@ -36,20 +38,26 @@ class LayarEScreen extends ConsumerWidget {
               }).toList(),
             ),
           ),
-          
+
           Expanded(
             child: ListView.builder(
               itemCount: products.length,
               itemBuilder: (context, index) {
                 final p = products[index];
-                return ListTile(title: Text(p.name), subtitle: Text(p.category));
+                return ListTile(
+                  title: Text(p.name),
+                  subtitle: Text(p.category),
+                );
               },
             ),
           ),
           const Divider(),
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: Text('Demo select()', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+            child: Text(
+              'Demo select()',
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            ),
           ),
           const UserNameWidget(), // Widget ini menggunakan select()
           Padding(
@@ -59,9 +67,10 @@ class LayarEScreen extends ConsumerWidget {
               children: [
                 Text('View Count (full watch): ${userFull.viewCount}'),
                 ElevatedButton(
-                  onPressed: () => ref.read(userProfileProvider.notifier).incrementView(),
+                  onPressed: () =>
+                      ref.read(userProfileProvider.notifier).incrementView(),
                   child: const Text('Tambah View'),
-                )
+                ),
               ],
             ),
           ),
@@ -87,10 +96,10 @@ class UserNameWidget extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Menggunakan select agar hanya rebuild saat 'name' berubah, 
+    // Menggunakan select agar hanya rebuild saat 'name' berubah,
     // MENGABAIKAN perubahan 'viewCount'.
     final userName = ref.watch(userProfileProvider.select((user) => user.name));
-    
+
     // Print ini hanya akan terpanggil di console saat widget di-rebuild.
     debugPrint('Building UserNameWidget dengan nama: $userName');
 

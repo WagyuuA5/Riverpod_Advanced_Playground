@@ -10,9 +10,7 @@ class LayarAScreen extends ConsumerWidget {
     final randomNumber = ref.watch(randomNumberProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Layar A: Auto Dispose'),
-      ),
+      appBar: AppBar(title: const Text('Layar A: Auto Dispose')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

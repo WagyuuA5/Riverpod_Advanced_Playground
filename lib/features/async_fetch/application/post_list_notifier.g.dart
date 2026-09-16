@@ -12,13 +12,14 @@ String _$postListHash() => r'4ad16af3f703f44b7ce947ba5c5d9eeb6d85cebe';
 @ProviderFor(PostList)
 final postListProvider =
     AutoDisposeAsyncNotifierProvider<PostList, List<Post>>.internal(
-  PostList.new,
-  name: r'postListProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$postListHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      PostList.new,
+      name: r'postListProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$postListHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$PostList = AutoDisposeAsyncNotifier<List<Post>>;
 // ignore_for_file: type=lint

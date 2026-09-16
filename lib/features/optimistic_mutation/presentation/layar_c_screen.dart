@@ -10,9 +10,7 @@ class LayarCScreen extends ConsumerWidget {
     final todosAsync = ref.watch(todoListProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Layar C: Optimistic Mutation'),
-      ),
+      appBar: AppBar(title: const Text('Layar C: Optimistic Mutation')),
       body: todosAsync.when(
         data: (todos) {
           if (todos.isEmpty) {
@@ -32,24 +30,35 @@ class LayarCScreen extends ConsumerWidget {
                       onPressed: () async {
                         try {
                           // Hapus dengan status sukses
-                          await ref.read(todoListProvider.notifier).deleteTodo(todo.id, fail: false);
+                          await ref
+                              .read(todoListProvider.notifier)
+                              .deleteTodo(todo.id, fail: false);
                         } catch (e) {
                           if (context.mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(e.toString())),
+                            );
                           }
                         }
                       },
                     ),
                     IconButton(
-                      icon: const Icon(Icons.error_outline, color: Colors.orange),
+                      icon: const Icon(
+                        Icons.error_outline,
+                        color: Colors.orange,
+                      ),
                       tooltip: 'Simulasi Gagal Hapus',
                       onPressed: () async {
                         try {
                           // Simulasi gagal
-                          await ref.read(todoListProvider.notifier).deleteTodo(todo.id, fail: true);
+                          await ref
+                              .read(todoListProvider.notifier)
+                              .deleteTodo(todo.id, fail: true);
                         } catch (e) {
                           if (context.mounted) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(e.toString())),
+                            );
                           }
                         }
                       },
@@ -70,10 +79,14 @@ class LayarCScreen extends ConsumerWidget {
             heroTag: 'btn1',
             onPressed: () async {
               try {
-                await ref.read(todoListProvider.notifier).addTodo('Tugas Baru', fail: false);
+                await ref
+                    .read(todoListProvider.notifier)
+                    .addTodo('Tugas Baru', fail: false);
               } catch (e) {
                 if (context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text(e.toString())));
                 }
               }
             },
@@ -86,10 +99,14 @@ class LayarCScreen extends ConsumerWidget {
             tooltip: 'Tambah (Gagal)',
             onPressed: () async {
               try {
-                await ref.read(todoListProvider.notifier).addTodo('Tugas Gagal', fail: true);
+                await ref
+                    .read(todoListProvider.notifier)
+                    .addTodo('Tugas Gagal', fail: true);
               } catch (e) {
                 if (context.mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(SnackBar(content: Text(e.toString())));
                 }
               }
             },

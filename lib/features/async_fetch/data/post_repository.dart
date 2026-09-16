@@ -12,9 +12,11 @@ class PostRepository {
   Future<List<Post>> fetchPosts() async {
     // Simulasi network delay
     await Future.delayed(const Duration(seconds: 1));
-    
-    final response = await _dio.get('https://jsonplaceholder.typicode.com/posts');
-    
+
+    final response = await _dio.get(
+      'https://jsonplaceholder.typicode.com/posts',
+    );
+
     if (response.statusCode == 200) {
       final List data = response.data;
       return data.map((e) => Post.fromJson(e)).toList();

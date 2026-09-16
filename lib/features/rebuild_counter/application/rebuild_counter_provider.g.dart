@@ -13,14 +13,14 @@ String _$counterDataNotifierHash() =>
 @ProviderFor(CounterDataNotifier)
 final counterDataNotifierProvider =
     AutoDisposeNotifierProvider<CounterDataNotifier, CounterData>.internal(
-  CounterDataNotifier.new,
-  name: r'counterDataNotifierProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$counterDataNotifierHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      CounterDataNotifier.new,
+      name: r'counterDataNotifierProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$counterDataNotifierHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$CounterDataNotifier = AutoDisposeNotifier<CounterData>;
 // ignore_for_file: type=lint

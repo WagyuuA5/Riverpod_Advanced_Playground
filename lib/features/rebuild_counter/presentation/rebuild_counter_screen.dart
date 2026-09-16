@@ -23,11 +23,15 @@ class RebuildCounterScreen extends ConsumerWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  onPressed: () => ref.read(counterDataNotifierProvider.notifier).incrementA(),
+                  onPressed: () => ref
+                      .read(counterDataNotifierProvider.notifier)
+                      .incrementA(),
                   child: const Text('Tambah A'),
                 ),
                 ElevatedButton(
-                  onPressed: () => ref.read(counterDataNotifierProvider.notifier).incrementB(),
+                  onPressed: () => ref
+                      .read(counterDataNotifierProvider.notifier)
+                      .incrementB(),
                   child: const Text('Tambah B'),
                 ),
               ],
@@ -70,9 +74,16 @@ class _FullWatchWidgetState extends ConsumerState<FullWatchWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('ref.watch(provider)', style: TextStyle(fontWeight: FontWeight.bold)),
+          const Text(
+            'ref.watch(provider)',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 8),
-          Text('Build count:\n$_buildCount', textAlign: TextAlign.center, style: const TextStyle(fontSize: 24, color: Colors.red)),
+          Text(
+            'Build count:\n$_buildCount',
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 24, color: Colors.red),
+          ),
           const SizedBox(height: 16),
           Text('State A: ${state.countA}'),
           Text('State B: ${state.countB}'),
@@ -95,7 +106,9 @@ class _SelectAWatchWidgetState extends ConsumerState<SelectAWatchWidget> {
   Widget build(BuildContext context) {
     _buildCount++;
     // HANYA mengamati perubahan pada State A
-    final countA = ref.watch(counterDataNotifierProvider.select((s) => s.countA));
+    final countA = ref.watch(
+      counterDataNotifierProvider.select((s) => s.countA),
+    );
 
     return Container(
       padding: const EdgeInsets.all(8),
@@ -103,9 +116,16 @@ class _SelectAWatchWidgetState extends ConsumerState<SelectAWatchWidget> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('select((s) => s.A)', style: TextStyle(fontWeight: FontWeight.bold)),
+          const Text(
+            'select((s) => s.A)',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 8),
-          Text('Build count:\n$_buildCount', textAlign: TextAlign.center, style: const TextStyle(fontSize: 24, color: Colors.green)),
+          Text(
+            'Build count:\n$_buildCount',
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 24, color: Colors.green),
+          ),
           const SizedBox(height: 16),
           Text('State A: $countA'),
           const Text('State B: (diabaikan)'),

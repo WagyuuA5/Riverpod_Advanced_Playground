@@ -13,8 +13,9 @@ String _$randomNumberHash() => r'b6f6044e43ac88ce7687439a73b60ef2bc57079f';
 final randomNumberProvider = AutoDisposeProvider<int>.internal(
   randomNumber,
   name: r'randomNumberProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$randomNumberHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$randomNumberHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

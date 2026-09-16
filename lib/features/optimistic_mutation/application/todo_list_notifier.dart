@@ -14,11 +14,14 @@ class TodoList extends _$TodoList {
 
   Future<void> addTodo(String title, {bool fail = false}) async {
     final repo = ref.read(todoRepositoryProvider);
-    final newTodo = Todo(id: DateTime.now().millisecondsSinceEpoch.toString(), title: title);
-    
+    final newTodo = Todo(
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      title: title,
+    );
+
     // Backup state sebelum optimis update
     final previousState = state;
-    
+
     // Optimistic Update: Langsung tambahkan ke list UI
     if (state.value != null) {
       state = AsyncData([...state.value!, newTodo]);
@@ -36,10 +39,10 @@ class TodoList extends _$TodoList {
 
   Future<void> deleteTodo(String id, {bool fail = false}) async {
     final repo = ref.read(todoRepositoryProvider);
-    
+
     // Backup state sebelum optimis update
     final previousState = state;
-    
+
     // Optimistic Update: Langsung hapus dari list UI
     if (state.value != null) {
       state = AsyncData(state.value!.where((todo) => todo.id != id).toList());

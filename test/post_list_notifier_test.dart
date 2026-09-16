@@ -8,7 +8,7 @@ import 'package:dio/dio.dart';
 // Manual mock
 class MockPostRepository extends PostRepository {
   final bool shouldFail;
-  
+
   MockPostRepository({this.shouldFail = false}) : super(Dio());
 
   @override
@@ -27,7 +27,9 @@ void main() {
   test('fetchPosts success state', () async {
     final container = ProviderContainer(
       overrides: [
-        postRepositoryProvider.overrideWithValue(MockPostRepository(shouldFail: false)),
+        postRepositoryProvider.overrideWithValue(
+          MockPostRepository(shouldFail: false),
+        ),
       ],
     );
     addTearDown(container.dispose);
@@ -47,7 +49,9 @@ void main() {
   test('fetchPosts error state', () async {
     final container = ProviderContainer(
       overrides: [
-        postRepositoryProvider.overrideWithValue(MockPostRepository(shouldFail: true)),
+        postRepositoryProvider.overrideWithValue(
+          MockPostRepository(shouldFail: true),
+        ),
       ],
     );
     addTearDown(container.dispose);
@@ -56,10 +60,7 @@ void main() {
       container.read(postListProvider.future),
       throwsA(isA<Exception>()),
     );
-    
-    expect(
-      container.read(postListProvider).hasError,
-      isTrue,
-    );
+
+    expect(container.read(postListProvider).hasError, isTrue);
   });
 }

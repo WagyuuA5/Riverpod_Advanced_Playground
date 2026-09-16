@@ -39,21 +39,15 @@ class ItemDetailFamily extends Family<AsyncValue<String>> {
   const ItemDetailFamily();
 
   /// See also [itemDetail].
-  ItemDetailProvider call(
-    String id,
-  ) {
-    return ItemDetailProvider(
-      id,
-    );
+  ItemDetailProvider call(String id) {
+    return ItemDetailProvider(id);
   }
 
   @override
   ItemDetailProvider getProviderOverride(
     covariant ItemDetailProvider provider,
   ) {
-    return call(
-      provider.id,
-    );
+    return call(provider.id);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -74,24 +68,18 @@ class ItemDetailFamily extends Family<AsyncValue<String>> {
 /// See also [itemDetail].
 class ItemDetailProvider extends AutoDisposeFutureProvider<String> {
   /// See also [itemDetail].
-  ItemDetailProvider(
-    String id,
-  ) : this._internal(
-          (ref) => itemDetail(
-            ref as ItemDetailRef,
-            id,
-          ),
-          from: itemDetailProvider,
-          name: r'itemDetailProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$itemDetailHash,
-          dependencies: ItemDetailFamily._dependencies,
-          allTransitiveDependencies:
-              ItemDetailFamily._allTransitiveDependencies,
-          id: id,
-        );
+  ItemDetailProvider(String id)
+    : this._internal(
+        (ref) => itemDetail(ref as ItemDetailRef, id),
+        from: itemDetailProvider,
+        name: r'itemDetailProvider',
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$itemDetailHash,
+        dependencies: ItemDetailFamily._dependencies,
+        allTransitiveDependencies: ItemDetailFamily._allTransitiveDependencies,
+        id: id,
+      );
 
   ItemDetailProvider._internal(
     super._createNotifier, {
@@ -148,7 +136,8 @@ mixin ItemDetailRef on AutoDisposeFutureProviderRef<String> {
 }
 
 class _ItemDetailProviderElement
-    extends AutoDisposeFutureProviderElement<String> with ItemDetailRef {
+    extends AutoDisposeFutureProviderElement<String>
+    with ItemDetailRef {
   _ItemDetailProviderElement(super.provider);
 
   @override
@@ -160,9 +149,7 @@ String _$cacheTimerHash() => r'18e1c6645f7991f16e36bfc66808439b0feabba9';
 abstract class _$CacheTimer extends BuildlessAutoDisposeNotifier<int> {
   late final String id;
 
-  int build(
-    String id,
-  );
+  int build(String id);
 }
 
 /// See also [CacheTimer].
@@ -175,21 +162,15 @@ class CacheTimerFamily extends Family<int> {
   const CacheTimerFamily();
 
   /// See also [CacheTimer].
-  CacheTimerProvider call(
-    String id,
-  ) {
-    return CacheTimerProvider(
-      id,
-    );
+  CacheTimerProvider call(String id) {
+    return CacheTimerProvider(id);
   }
 
   @override
   CacheTimerProvider getProviderOverride(
     covariant CacheTimerProvider provider,
   ) {
-    return call(
-      provider.id,
-    );
+    return call(provider.id);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -211,21 +192,18 @@ class CacheTimerFamily extends Family<int> {
 class CacheTimerProvider
     extends AutoDisposeNotifierProviderImpl<CacheTimer, int> {
   /// See also [CacheTimer].
-  CacheTimerProvider(
-    String id,
-  ) : this._internal(
-          () => CacheTimer()..id = id,
-          from: cacheTimerProvider,
-          name: r'cacheTimerProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$cacheTimerHash,
-          dependencies: CacheTimerFamily._dependencies,
-          allTransitiveDependencies:
-              CacheTimerFamily._allTransitiveDependencies,
-          id: id,
-        );
+  CacheTimerProvider(String id)
+    : this._internal(
+        () => CacheTimer()..id = id,
+        from: cacheTimerProvider,
+        name: r'cacheTimerProvider',
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$cacheTimerHash,
+        dependencies: CacheTimerFamily._dependencies,
+        allTransitiveDependencies: CacheTimerFamily._allTransitiveDependencies,
+        id: id,
+      );
 
   CacheTimerProvider._internal(
     super._createNotifier, {
@@ -240,12 +218,8 @@ class CacheTimerProvider
   final String id;
 
   @override
-  int runNotifierBuild(
-    covariant CacheTimer notifier,
-  ) {
-    return notifier.build(
-      id,
-    );
+  int runNotifierBuild(covariant CacheTimer notifier) {
+    return notifier.build(id);
   }
 
   @override
@@ -296,5 +270,6 @@ class _CacheTimerProviderElement
   @override
   String get id => (origin as CacheTimerProvider).id;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
